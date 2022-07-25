@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Bosh sahifa{% endblock title %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        {{ user.username }}!
+        <br>
+        <p><a href="{% url 'logout' %}">Chiqib ketish</a></p>
+        <p><a href="{% url 'tours_list' %}">Turlar ro'yhati</a></p>
+        <p><a href="#">Mening turlarim</a></p>
+        <p><a href="{% url 'orders_list' %}">Zakazlar</a></p>
+    {% else %}
+        <p>Saytga kirmagansiz</p>
+        <a href="{% url 'login' %}">Kirish</a> |
+        <a href="{% url 'signup' %}">Ro'yxatdan o'tish</a>
+    {% endif %}
+{% endblock content %}

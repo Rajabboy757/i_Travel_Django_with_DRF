@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+                <div class="card" style="width: 67rem;">
+                  <img class="card-img-top" src="{{ object.image.url }}" alt="Card image cap">
+                  <div class="card-body">
+                      <br>
+                    <h2 class="card-title">{{ object.title }} {{ object.cost }}$ dan boshlab</h2>
+                      <br>
+                    <p class="card-text">{{ object.description | safe}}</p>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><strong>Boshlanish sanasi:</strong> {{ object.start_date }}</li>
+                    <li class="list-group-item"><strong>Davomiyligi:</strong> {{ object.days }} kun, {{ object.nights }} tun.</li>
+                    <li class="list-group-item"><strong>Qolgan joylar:</strong> {{ object.free_places }} ta</li>
+                  </ul>
+                  <div class="card-body">
+                    <a href="{% url 'order' tour.pk %}" class="btn btn-primary ml-2">Turni bron qilish</a>
+                  </div>
+                </div>
+
+{% endblock content %}
